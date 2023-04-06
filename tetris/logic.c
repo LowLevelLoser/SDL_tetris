@@ -54,6 +54,14 @@ void run_game(game_t *game) {
     return;
 }
 
+void delay(int ms) {
+    clock_t now, then;
+    pause = ms * (CLOCKS_PER_SEC / 1000);
+    now = then = clock();
+    while ((now - then) < pause)
+        now = clock();
+}
+
 void keys_pressed(SDL_KeyboardEvent *key, game_t *game) {
     collides(game);
     switch (key->keysym.sym) {
@@ -181,15 +189,6 @@ void settle_piece(game_t *game) {
     //printf("\npiece: %d\n", game->piece_index);
     clear_lines(game);
     can_switch = true;
-}
-
-
-void delay(int ms) {
-    clock_t now, then;
-    pause = ms * (CLOCKS_PER_SEC / 1000);
-    now = then = clock();
-    while ((now - then) < pause)
-        now = clock();
 }
 
 bool collides(game_t *game){
