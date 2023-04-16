@@ -1,5 +1,3 @@
-#include <SDL2/SDL_keyboard.h>
-#include <SDL2/SDL_keycode.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,7 +19,7 @@ bool overlaps(game_t *game);
 int find_lines(game_t *game);
 void clear_lines(game_t *game);
 void reset_placement(game_t *game);
-void print_piece(game_t *game);
+//void //print_piece(game_t *game);
 bool collides(game_t *game);
 void next_piece(game_t *game);
 void switch_piece(game_t *game);
@@ -67,13 +65,6 @@ void keys_pressed(SDL_KeyboardEvent *key, game_t *game) {
     switch (key->keysym.sym) {
         case SDLK_LEFT:
             piece_left(game);
-            //game->tet_placement[0]--;
-            //collision_detector(game, true);
-            //if (game->collision_codes[1]) {
-            //  game->tet_placement[0]++;
-            //  for (int i = 0; i < 9; i++)
-            //    game->collision_codes[i] = 0;
-            //}
             break;
         case SDLK_RIGHT:
             piece_right(game);
@@ -134,7 +125,7 @@ void piece_down(game_t *game){
         settle_piece(game);
         //printf("down collision\n");
     }
-    print_piece(game);
+    //print_piece(game);
     //settled = false;
     //reset_overlaps();
 }
@@ -325,7 +316,7 @@ void reset_placement(game_t *game){
     game->tet_placement[0] = 3;
 }
 
-void print_piece(game_t *game){
+/*void //print_piece(game_t *game){
     //printf("\npi:%d, rot:%d\n", game->piece_index, game->tet_rotation);
     for(int x = 0; x < 4; x++){
         for(int y = 0; y < 4; y++){
@@ -333,7 +324,7 @@ void print_piece(game_t *game){
         }
         //printf("\n");
     }
-}
+}*/
 
 
 void reset_game(game_t *game){

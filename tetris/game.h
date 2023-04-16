@@ -17,11 +17,6 @@
 #define RUNNING_STATE 0
 #define GAME_OVER_STATE 1
 #define QUIT_STATE 2
-// substates
-#define START_SCREEN 0
-#define FALLING 1
-#define PLACING 2
-#define LINE_DESTROYING 3
 
 #define EMPTY 0
 #define FALLING_SQUARE 1
@@ -36,10 +31,9 @@ typedef struct {
     int cached_index[4];
     int tet_placement[2];
     int piece_index;
-    int delay_in_ms;
     int tet_rotation;
     int alt_index;
-    //int collision_codes[9];
+
     int score;
     int line_cleared;
     int down_time;
