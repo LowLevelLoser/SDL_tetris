@@ -14,16 +14,7 @@ void render_game(SDL_Renderer *renderer, const game_t *game){
     if(game->state == RUNNING_STATE){
         render_running_state(renderer, game);
         render_right_screen(renderer, game);
-		render_grid(renderer);
-    }
-    else if(game->state == GAME_OVER_STATE){
-		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    	SDL_Rect game_over_screen;
-    	game_over_screen.x = 0;
-    	game_over_screen.y = 0;
-    	game_over_screen.w = GAME_SCREEN_WIDTH;
-    	game_over_screen.h = GAME_SCREEN_HEIGHT;
-        SDL_RenderFillRect(renderer, &game_over_screen);
+	render_grid(renderer);
     }
 }
 
