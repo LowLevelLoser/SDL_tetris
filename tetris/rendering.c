@@ -39,18 +39,11 @@ void render_running_state(SDL_Renderer *renderer, const game_t *game){
     square.h = CELL_HEIGHT;
    	for(int x = 0; x < ROWS; ++x)
 		for(int y = 0; y < COLUMNS; ++y){
-			switch(game->play_area[x][y]){
-				case SETTLED_SQUARE:
-					square.x = y*CELL_WIDTH;
-					square.y = x*CELL_HEIGHT;
-					SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-					SDL_RenderFillRect(renderer, & square);
-					break;
-				default: 
-					square.x = (y)*CELL_WIDTH;
-					square.y = (x)*CELL_HEIGHT;
-					SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-					SDL_RenderFillRect(renderer, & square);
+			if(game->play_area[x][y] == SETTLED_SQUARE){
+				square.x = y*CELL_WIDTH;
+				square.y = x*CELL_HEIGHT;
+				SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+				SDL_RenderFillRect(renderer, & square);
 			}
 		}
 	
